@@ -1,4 +1,5 @@
 import React from "react";
+import LogoutButton from "./logout";
 
 const Navbar = () => {
   return (
@@ -16,7 +17,7 @@ const Navbar = () => {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                src="https://cdn.kessoku.live/shimagecloud.jpg"
               />
             </div>
           </div>
@@ -25,7 +26,7 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-32 p-2 shadow"
           >
             <li>
-              <a className="bg-base-300">Logout</a>
+              <a className="bg-base-300"><LogoutButton /></a>
             </li>
           </ul>
         </div>

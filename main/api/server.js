@@ -27,7 +27,6 @@ const uploadRoutes = require('./routes/upload');
 app.use('/api/auth', authRoutes);
 app.use('/api/upload', uploadRoutes);
 
-
 //Handling Error
 app.use((err, req, res, next) => {
   console.error(err.stack);

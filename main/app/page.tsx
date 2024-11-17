@@ -1,4 +1,5 @@
 import MainPage from "./mainpage";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -33,10 +34,10 @@ export default function Home() {
             <ul className="menu menu-horizontal">
               {/* Navbar menu content here */}
               <li>
-                <a>Help</a>
+                <Link href="/help">Help</Link>
               </li>
               <li>
-                <a>Login</a>
+                <Link href="/login">Login</Link>
               </li>
             </ul>
           </div>

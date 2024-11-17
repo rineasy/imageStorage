@@ -3,6 +3,9 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { jwtDecode } from "jwt-decode";
+import Upload from "../components/upload";
+import Navbar from "../components/navbar";
+import Gallery from "../components/gallery";
 
 // Define the structure of your token
 interface DecodedToken {
@@ -69,7 +72,11 @@ const Dashboard = () => {
     return <div>Loading...</div>; // Display loading state while validating token
   }
 
-  return <div>Welcome to the Dashboard!</div>;
+  return <div>
+    <Navbar />
+    <Upload />
+    <Gallery />
+  </div>;
 };
 
 export default Dashboard;

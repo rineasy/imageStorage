@@ -138,7 +138,7 @@ const Pricing = () => {
           </ul>
 
           <a
-            href="#register"
+            href="/contact"
             className="mt-8 block rounded-full border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-indigo-700 hover:ring-1 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500"
           >
             Get Started
@@ -198,7 +198,7 @@ const Pricing = () => {
                 />
               </svg>
 
-              <span className="text-gray-300"> Max Upload 2MB </span>
+              <span className="text-gray-300"> Max Upload 3MB </span>
             </li>
 
             <li className="flex items-center gap-1">
