@@ -48,7 +48,7 @@ This project provides an image upload and management system, allowing users to u
 3. **Install frontend dependencies**:
 
     ```bash
-    cd client
+    cd main
     npm install
     ```
 
