@@ -2,7 +2,7 @@ import React from "react";
 
 const Pricing = () => {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <div id="pricing" className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-center md:gap-8">
         <div className="rounded-2xl border border-indigo-600 p-6 shadow-sm ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12">
           <div className="text-center">
@@ -14,7 +14,7 @@ const Pricing = () => {
             <p className="mt-2 sm:mt-4">
               <strong className="text-3xl font-bold text-gray-100 sm:text-4xl">
                 {" "}
-                30${" "}
+                4.99${" "}
               </strong>
 
               <span className="text-sm font-medium text-gray-300">/month</span>
@@ -38,7 +38,7 @@ const Pricing = () => {
                 />
               </svg>
 
-              <span className="text-gray-300"> 20 users included </span>
+              <span className="text-gray-300"> Unlimited Image Upload </span>
             </li>
 
             <li className="flex items-center gap-1">
@@ -57,7 +57,7 @@ const Pricing = () => {
                 />
               </svg>
 
-              <span className="text-gray-300"> 5GB of storage </span>
+              <span className="text-gray-300"> Max Upload 10MB </span>
             </li>
 
             <li className="flex items-center gap-1">
@@ -95,7 +95,7 @@ const Pricing = () => {
                 />
               </svg>
 
-              <span className="text-gray-300"> Help center access </span>
+              <span className="text-gray-300"> Data Protection </span>
             </li>
 
             <li className="flex items-center gap-1">
@@ -114,7 +114,7 @@ const Pricing = () => {
                 />
               </svg>
 
-              <span className="text-gray-300"> Phone support </span>
+              <span className="text-gray-300"> Early Beta Features </span>
             </li>
 
             <li className="flex items-center gap-1">
@@ -138,7 +138,7 @@ const Pricing = () => {
           </ul>
 
           <a
-            href="#"
+            href="#register"
             className="mt-8 block rounded-full border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-indigo-700 hover:ring-1 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500"
           >
             Get Started
@@ -155,7 +155,7 @@ const Pricing = () => {
             <p className="mt-2 sm:mt-4">
               <strong className="text-3xl font-bold text-gray-100 sm:text-4xl">
                 {" "}
-                20${" "}
+                0${" "}
               </strong>
 
               <span className="text-sm font-medium text-gray-300">/month</span>
@@ -179,7 +179,7 @@ const Pricing = () => {
                 />
               </svg>
 
-              <span className="text-gray-300"> 10 users included </span>
+              <span className="text-gray-300"> Up to 100 Images </span>
             </li>
 
             <li className="flex items-center gap-1">
@@ -198,7 +198,7 @@ const Pricing = () => {
                 />
               </svg>
 
-              <span className="text-gray-300"> 2GB of storage </span>
+              <span className="text-gray-300"> Max Upload 2MB </span>
             </li>
 
             <li className="flex items-center gap-1">
@@ -236,12 +236,12 @@ const Pricing = () => {
                 />
               </svg>
 
-              <span className="text-gray-300"> Help center access </span>
+              <span className="text-gray-300"> Data protection </span>
             </li>
           </ul>
 
           <a
-            href="#"
+            href="#register"
             className="mt-8 block rounded-full border border-indigo-600 bg-white px-12 py-3 text-center text-sm font-medium text-indigo-600 hover:ring-1 hover:ring-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
           >
             Get Started

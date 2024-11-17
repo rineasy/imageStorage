@@ -15,7 +15,7 @@ const Hero = () => {
             sharing with our platform.
           </p>
 
-          <button className="btn btn-primary">Get Started</button>
+          <a href="#pricing" className="btn btn-primary">Get Started</a>
         </div>
       </div>
     </div>

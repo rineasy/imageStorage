@@ -15,6 +15,7 @@ router.post("/register", async (req, res) => {
     // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
+      console.log(`Registration failed: User with email ${email} already exists.`);
       return res.status(400).json({ message: "User already exists" });
     }
 
@@ -25,6 +26,7 @@ router.post("/register", async (req, res) => {
     const newUser = new User({ email, password: hashedPassword });
     await newUser.save();
 
+    console.log(`User registered successfully: ${email}`);
     res.status(201).json({ message: "User registered successfully" });
   } catch (err) {
     console.error("Registration Error:", err);
@@ -40,12 +42,14 @@ router.post("/login", async (req, res) => {
     // Check if the user exists
     const user = await User.findOne({ email });
     if (!user) {
+      console.log(`Login failed: User with email ${email} not found.`);
       return res.status(404).json({ message: "User not found" });
     }
 
     // Validate the password
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
+      console.log(`Login failed: Invalid credentials for email ${email}.`);
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
@@ -56,6 +60,7 @@ router.post("/login", async (req, res) => {
       { expiresIn: "1h" } // Expiration
     );
 
+    console.log(`User logged in successfully: ${email}`);
     res.status(200).json({ token });
   } catch (err) {
     console.error("Login Error:", err);
@@ -70,6 +75,7 @@ router.post("/logout", authenticateToken, async (req, res) => {
   try {
     // Check if the token exists in the request
     if (!token) {
+      console.log("Logout failed: No token provided.");
       return res.status(401).json({ message: "No token provided." });
     }
 
@@ -84,10 +90,47 @@ router.post("/logout", authenticateToken, async (req, res) => {
 
     await blacklistedToken.save(); // Save the token in the blacklist collection
 
+    console.log(`User logged out successfully. Token blacklisted.`);
     res.status(200).json({ message: "Successfully logged out" });
   } catch (err) {
     console.error("Logout Error:", err);
     res.status(500).json({ message: "Error logging out" });
+  }
+});
+
+// Token Validation Endpoint
+router.post("/validate", async (req, res) => {
+  const token = req.headers["authorization"]?.split(" ")[1]; // Extract token from Authorization header
+
+  if (!token) {
+    console.log("Validation failed: No token provided.");
+    return res.status(401).json({ message: "No token provided." });
+  }
+
+  try {
+    // Check if the token is blacklisted
+    const isBlacklisted = await BlacklistedToken.findOne({ token });
+    if (isBlacklisted) {
+      console.log("Validation failed: Token is blacklisted.");
+      return res.status(403).json({ message: "Token is invalid or blacklisted." });
+    }
+
+    // Verify the token
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    console.log(`Token validated successfully for user ID: ${decoded.id}`);
+    return res.status(200).json({ message: "Token is valid", user: decoded });
+  } catch (err) {
+    console.error("Token validation error:", err);
+
+    // Handle token expiration or invalid token
+    if (err.name === "TokenExpiredError") {
+      console.log("Validation failed: Token has expired.");
+      return res.status(403).json({ message: "Token has expired." });
+    }
+
+    console.log("Validation failed: Invalid token.");
+    return res.status(403).json({ message: "Invalid token." });
   }
 });
 
